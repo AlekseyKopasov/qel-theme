@@ -1,6 +1,9 @@
 {
 	"name": "opencart-theme",
 	"version": "1.0.0",
+	"scripts": {
+		"dev": "gulp watch"
+	},
 	"devDependencies": {
 		"@babel/core": "^7.9.0",
 		"@babel/preset-env": "^7.9.0",

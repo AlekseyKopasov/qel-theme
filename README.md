@@ -2,6 +2,6 @@
 
 # Install
 
-1. ``cd dev``
+1. ``cd dev/``
 2. ``yarn install``
-3. ``npx gulp watch``
+3. ``npm run dev``

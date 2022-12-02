@@ -24,7 +24,7 @@ let plumber = require('gulp-plumber');
 let options = require('gulp-options');
 let gulpif = require('gulp-if');
 
-// Browers related plugins
+// Browsers related plugins
 let browserSync = require('browser-sync').create();
 
 // Project related letiables

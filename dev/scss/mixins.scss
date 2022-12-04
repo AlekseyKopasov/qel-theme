@@ -1,0 +1,186 @@
+@mixin retina {
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    @content;
+  }
+}
+
+@mixin list-reset {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin text($fz: $font-size, $lh: $line-height, $c: $color-main) {
+  font-size: $fz;
+  line-height: $lh;
+  color: $c;
+}
+
+// Desktop first
+
+@mixin viewport--xl {
+  @media (max-width: $viewport--xxl - 1) {
+    @content;
+  }
+}
+
+@mixin viewport--lg {
+  @media (max-width: $viewport--xl - 1) {
+    @content;
+  }
+}
+
+@mixin viewport--md {
+  @media (max-width: $viewport--lg - 1) {
+    @content;
+  }
+}
+
+@mixin viewport--sm {
+  @media (max-width: $viewport--md - 1) {
+    @content;
+  }
+}
+
+// Mobile first
+
+/* @mixin viewport--md {
+  @media (min-width: $viewport--md) {
+    @content;
+  }
+}
+
+@mixin viewport--lg {
+  @media (min-width: $viewport--lg) {
+    @content;
+  }
+}
+
+@mixin viewport--xl {
+  @media (min-width: $viewport--xl) {
+    @content;
+  }
+}
+
+@mixin viewport--xxl {
+  @media (min-width: $viewport--xxl) {
+    @content;
+  }
+} */
+
+// Отзывчатый размер шрифта - источник https://habr.com/ru/post/310186/
+// Пример использования - https://codepen.io/ROBsoer/pen/PGkWbK
+
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function calc-fluid-font-size($f-min, $f-max, $w-min, $w-max, $units: px) {
+  $f-min: strip-unit($f-min);
+  $f-max: strip-unit($f-max);
+  $w-min: strip-unit($w-min);
+  $w-max: strip-unit($w-max);
+
+  $k: ($f-max - $f-min)/($w-max - $w-min);
+  $b: $f-min - $k * $w-min;
+
+  $b: $b + $units;
+
+  @return calc( #{$k} * 100vw + #{$b} );
+}
+
+@mixin fluid-font-size($f-min, $f-max, $w-min, $w-max, $fallback: false) {
+  font-size: $f-min;
+
+  @media (min-width: $w-min) {
+    @if ($fallback) {
+      font-size: $fallback;
+    }
+    font-size: calc-fluid-font-size($f-min, $f-max, $w-min, $w-max, px);
+  }
+
+  @media (min-width: $w-max) {
+    font-size: $f-max;
+  }
+}
+
+// Только для мозиллы
+@mixin only-moz {
+  /* stylelint-disable */
+  @-moz-document url-prefix() {
+  /* stylelint-enable */
+    @content;
+  }
+}
+
+// сброс кастомных стилей
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin list-collapse($collapse-amount: 2px) {
+  li + li {
+    margin-top: -$collapse-amount;
+  }
+}
+
+@mixin button-reset {
+  padding: 0;
+
+  font: inherit;
+  color: inherit;
+
+  border: none;
+}
+
+@mixin hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  white-space: nowrap;
+
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@mixin link-reset {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+@mixin field-reset {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+}
+
+@mixin button-reset {
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: inherit;
+}
+
+// transition
+
+@mixin transition($args...) {
+  transition: $args $modal-transition-settings;
+}

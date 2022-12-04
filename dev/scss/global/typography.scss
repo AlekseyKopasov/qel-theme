@@ -1,0 +1,45 @@
+body {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: $font-family--main;
+  color: $color-main;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // для devtools
+  //@media (min-width: $viewport--sm) {
+  //  -moz-osx-font-smoothing: grayscale;
+  //}
+  //
+  //@media (min-width: $viewport--md) {
+  //  -moz-osx-font-smoothing: grayscale;
+  //}
+  //
+  //@media (min-width: $viewport--lg) {
+  //  -moz-osx-font-smoothing: grayscale;
+  //}
+  //
+  //@media (min-width: $viewport--xl) {
+  //  -moz-osx-font-smoothing: grayscale;
+  //}
+  //
+  //@media (min-width: $viewport--xxl) {
+  //  -moz-osx-font-smoothing: grayscale;
+  //}
+
+  @include viewport--sm {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+a {
+  //color: $color-default-black;
+  text-decoration: none;
+}
+
+.hidden {
+  overflow-y: hidden;
+}

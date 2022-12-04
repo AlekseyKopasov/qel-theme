@@ -1,8 +1,5 @@
 .header {
-  display: flex;
-  display: none;
-  background-color: red;
-}
-body {
-  background-color: green;
+  &__wrapper {
+    display: flex;
+  }
 }

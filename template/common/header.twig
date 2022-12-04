@@ -30,71 +30,72 @@
   {% endfor %}
 </head>
 <body>
-<header class="header">
-  <div class="container">
-    <div class="logo">
-      {% if logo %}
-        <a href="{{ home }}">
-          <img src="{{ logo }}" title="{{ name }}" alt="{{ name }}"/>
+<div class="wrapper">
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        {% if logo %}
+          <a href="{{ home }}">
+            <svg class="" width="122" height="60" aria-hidden="true">
+              <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-logo"></use>
+            </svg>
+          </a>
+        {% else %}
+          <a href="{{ home }}">{{ name }}</a>
+        {% endif %}
+      </div>
+
+      <div class="search">
+        {{ search }}
+      </div>
+
+      <ul class="user-list">
+        <li class="user-list__item">
+          <a href="{{ compare }}" class="user-list__link" id="compare-total" title="{{ text_compare }}">иконка
+            сравнения</a>
+        </li>
+        <li class="user-list__item">
+          <a href="{{ wishlist }}" class="user-list__link" id="wishlist-total" title="{{ text_wishlist }}">иконка
+            избранного</a>
+        </li>
+        <li class="user-list__item">
+          <a class="user-list__link" href="{{ account }}" title="{{ text_account }}">
+            <span>{{ text_account }}</span>
+          </a>
+          <ul>
+            {% if logged %}
+              <li>
+                <a href="{{ account }}">{{ text_account }}</a>
+              </li>
+              <li>
+                <a href="{{ order }}">{{ text_order }}</a>
+              </li>
+              <li>
+                <a href="{{ transaction }}">{{ text_transaction }}</a>
+              </li>
+              <li>
+                <a href="{{ logout }}">{{ text_logout }}</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{ register }}">{{ text_register }}</a>
+              </li>
+              <li>
+                <a href="{{ login }}">{{ text_login }}</a>
+              </li>
+            {% endif %}
+          </ul>
+        </li>
+      </ul>
+
+      <div class="basket">
+        <a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}">
+          <span>{{ text_shopping_cart }}</span>
         </a>
-      {% else %}
-        <a href="{{ home }}">{{ name }}</a>
-      {% endif %}
+      </div>
     </div>
-
-    <div class="search">
-      {{ search }}
+    <div>
+      //- main menu  {{ menu }}
     </div>
-
-    <ul class="user-list">
-      <li class="user-list__item">
-        <a href="{{ compare }}" class="user-list__link" id="compare-total" title="{{ text_compare }}">иконка
-          сравнения</a>
-      </li>
-      <li class="user-list__item">
-        <a href="{{ wishlist }}" class="user-list__link" id="wishlist-total" title="{{ text_wishlist }}">иконка
-          избранного</a>
-      </li>
-      <li class="user-list__item">
-        <a class="user-list__link" href="{{ account }}" title="{{ text_account }}">
-          <span>{{ text_account }}</span>
-        </a>
-        <ul>
-          {% if logged %}
-            <li>
-              <a href="{{ account }}">{{ text_account }}</a>
-            </li>
-            <li>
-              <a href="{{ order }}">{{ text_order }}</a>
-            </li>
-            <li>
-              <a href="{{ transaction }}">{{ text_transaction }}</a>
-            </li>
-            <li>
-              <a href="{{ logout }}">{{ text_logout }}</a>
-            </li>
-          {% else %}
-            <li>
-              <a href="{{ register }}">{{ text_register }}</a>
-            </li>
-            <li>
-              <a href="{{ login }}">{{ text_login }}</a>
-            </li>
-          {% endif %}
-        </ul>
-      </li>
-    </ul>
-
-    <div class="basket">
-      <a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}">
-        <span>{{ text_shopping_cart }}</span>
-      </a>
-    </div>
-
-  </div>
 </header>
 
-
-        {{ menu }}
-</body>
-</html>

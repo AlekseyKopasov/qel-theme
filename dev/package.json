@@ -23,6 +23,7 @@
 		"gulp-sass": "^4.0.2",
 		"gulp-sourcemaps": "^2.6.5",
 		"gulp-strip-debug": "^3.0.0",
+		"gulp-svgstore": "^9.0.0",
 		"gulp-uglify": "^3.0.2",
 		"gulp-uglifycss": "^1.0.9",
 		"vinyl-buffer": "^1.0.0",

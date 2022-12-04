@@ -24,6 +24,9 @@ let plumber = require('gulp-plumber');
 let options = require('gulp-options');
 let gulpif = require('gulp-if');
 
+// svg plugins
+let svgstore = require('gulp-svgstore');
+
 // Browsers related plugins
 let browserSync = require('browser-sync').create();
 
@@ -38,6 +41,7 @@ let jsFiles = [jsFront];
 let jsURL = './../js/';
 
 let imgSRC = './image/**/*';
+let svgSRC = './image/icons/**/*';
 let imgURL = './../image/';
 
 let fontsSRC = './fonts/**/*';
@@ -118,10 +122,17 @@ function fonts() {
   return triggerPlumber(fontsSRC, fontsURL);
 }
 
+function sprite() {
+  return src([svgSRC])
+    .pipe(svgstore({inlineSvg: true}))
+    .pipe(rename('sprite_auto.svg'))
+    .pipe(dest(imgURL));
+}
+
 function watch_files() {
   watch(styleWatch, series(css, reload));
   watch(jsWatch, series(js, reload));
-  watch(imgWatch, series(image, reload));
+  watch(imgWatch, series(image, sprite, reload));
   watch(fontsWatch, series(fonts, reload));
   watch(twigWatch, series(reload));
   src(jsURL + 'custom.min.js').pipe(
@@ -132,6 +143,7 @@ function watch_files() {
 task('css', css);
 task('js', js);
 task('image', image);
+task('sprite', sprite);
 task('fonts', fonts);
-task('default', parallel(css, js, image, fonts));
+task('default', parallel(css, js, image, sprite, fonts));
 task('watch', parallel(browser_sync, watch_files));

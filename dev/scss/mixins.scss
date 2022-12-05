@@ -184,3 +184,8 @@
 @mixin transition($args...) {
   transition: $args $modal-transition-settings;
 }
+
+@mixin link-hover-color {
+  color: $color-fire;
+  transition: color $default-transition-settings;
+}

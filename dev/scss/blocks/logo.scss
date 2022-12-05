@@ -1,0 +1,14 @@
+.logo {
+  a {
+    color: $color-violet;
+  }
+
+  a:hover,
+  a:focus {
+    @include link-hover-color();
+  }
+
+  a:active {
+    color: $color-violet;
+  }
+}

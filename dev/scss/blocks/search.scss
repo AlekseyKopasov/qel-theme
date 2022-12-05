@@ -1,0 +1,40 @@
+.search {
+  position: relative;
+
+  &__input {
+    @include input();
+
+    z-index: 2;
+  }
+
+  &__btn {
+    @include button-reset();
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 100%;
+    border-radius: 3px;
+    //border: 1px solid $color-scooter;
+    //z-index: 1;
+
+    color: $color-default-white;
+    background-color: rgba($color-fire, 0.6);
+
+    &__btn svg {
+      width: 20px;
+      height: 19px;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: rgba($color-fire, 1);
+    }
+  }
+}

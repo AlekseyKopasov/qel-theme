@@ -35,15 +35,11 @@
     <div class="container">
       <div class="header__wrapper">
         <div class="logo">
-          {% if logo %}
-            <a href="{{ home }}">
-              <svg class="" width="122" height="60" aria-hidden="true">
-                <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-logo"></use>
-              </svg>
-            </a>
-          {% else %}
-            <a href="{{ home }}">{{ name }}</a>
-          {% endif %}
+          <a href="{{ home }}">
+            <svg width="122" height="60" aria-hidden="true">
+              <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-logo"></use>
+            </svg>
+          </a>
         </div>
 
         <div class="search">

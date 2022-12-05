@@ -179,6 +179,14 @@
   color: inherit;
 }
 
+@mixin input-reset {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+}
+
 // transition
 
 @mixin transition($args...) {
@@ -188,4 +196,31 @@
 @mixin link-hover-color {
   color: $color-fire;
   transition: color $default-transition-settings;
+}
+
+// input
+
+@mixin input {
+  @include input-reset();
+
+  padding: 9px 0 9px 15px;
+  border: 1px solid $color-scooter;
+  border-radius: 3px;
+
+  font-size: 14px;
+  line-height: 1;
+  color: $color-scooter;
+  cursor: pointer;
+  transition: border-color, box-shadow $default-transition-settings;
+  
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    border-color: $color-fire;
+    box-shadow: 2px 2px 8px 0 rgba($color-fire, 0.2);
+  }
+
+  &::placeholder {
+    color: rgba($color-scooter, 0.6);
+  }
 }

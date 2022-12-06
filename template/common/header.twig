@@ -46,15 +46,26 @@
 
         <ul class="user-list">
           <li class="user-list__item">
-            <a href="{{ compare }}" class="user-list__link" id="compare-total" title="{{ text_compare }}">иконка
-              сравнения</a>
+            <a href="{{ compare }}" class="user-list__link" id="compare-total" title="{{ text_compare }}"
+               aria-label="Посмосмотреть товары, отложенные для сравнения">
+              <svg class="user-list__icon" width="22" height="22" aria-hidden="true">
+                <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-law"></use>
+              </svg>
+            </a>
           </li>
           <li class="user-list__item">
-            <a href="{{ wishlist }}" class="user-list__link" id="wishlist-total" title="{{ text_wishlist }}">иконка
-              избранного</a>
+            <a href="{{ wishlist }}" class="user-list__link" id="wishlist-total" title="{{ text_wishlist }}"
+               aria-label="Посмосмотреть товары визибранном">
+              <svg class="user-list__icon" width="22" height="22" aria-hidden="true">
+                <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-heart"></use>
+              </svg>
+            </a>
           </li>
           <li class="user-list__item">
-            <a class="user-list__link" href="{{ account }}" title="{{ text_account }}">
+            <a class="user-list__link" href="{{ account }}" title="{{ text_account }}" aria-label="{{ text_account }}">
+              <svg class="user-list__icon user-list__icon--user" width="22" height="22" aria-hidden="true">
+                <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-person"></use>
+              </svg>
               <span>{{ text_account }}</span>
             </a>
             <ul>
@@ -90,10 +101,10 @@
         </div>
 
         <div>
-          //- main menu  {{ menu }}
+          //- main menu {{ menu }}
         </div>
       </div>
     </div>
 
-</header>
+  </header>
 

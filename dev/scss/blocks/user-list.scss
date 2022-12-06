@@ -1,0 +1,28 @@
+.user-list {
+  @include list-reset();
+
+  display: flex;
+  align-items: center;
+
+  &__link {
+    @include link();
+
+    padding: 8px;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    max-width: 22px;
+    max-height: 22px;
+  }
+
+  &__icon--user {
+    margin-right: 5px;
+  }
+}
+
+.user-list__item ul {
+  display: none; // TODO dev only
+}

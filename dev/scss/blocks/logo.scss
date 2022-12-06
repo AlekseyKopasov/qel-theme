@@ -4,7 +4,9 @@
   }
 
   a:hover,
-  a:focus {
+  a:focus,
+  a:focus-visible,
+  &:focus-visible {
     @include link-hover-color();
   }
 

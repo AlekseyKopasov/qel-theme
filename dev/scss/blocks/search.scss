@@ -1,31 +1,59 @@
 .search {
   position: relative;
 
+  display: flex;
+  align-items: center;
+
+  min-height: 38px;
+  height: 100%;
+  border: 1px solid $color-scooter;
+  border-radius: 3px;
+  transition: border-color, box-shadow $default-transition-settings;
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    border-color: $color-fire;
+    box-shadow: 2px 2px 8px 0 rgba($color-fire, 0.2);
+  }
+
+  &::placeholder {
+    color: rgba($color-scooter, 0.6);
+  }
+
   &__input {
     @include input();
 
-    z-index: 2;
+    max-width: 292px;
+    width: 100%;
+    min-height: inherit;
+
+    border: none;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      border-color: transparent;
+      box-shadow: none;
+    }
   }
 
   &__btn {
     @include button-reset();
 
-    position: absolute;
-    top: 0;
-    right: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 
     width: 38px;
+    min-height: inherit;
     height: 100%;
-    border-radius: 3px;
-    //border: 1px solid $color-scooter;
-    //z-index: 1;
 
     color: $color-default-white;
-    background-color: rgba($color-fire, 0.6);
+    background-color: rgba($color-scooter, 0.6);
+
+    transition: background-color $default-transition-settings;
 
     &__btn svg {
       width: 20px;
@@ -35,6 +63,10 @@
     &:hover,
     &:focus {
       background-color: rgba($color-fire, 1);
+    }
+
+    &:active {
+      background-color: rgba($color-fire, 0.6);
     }
   }
 }

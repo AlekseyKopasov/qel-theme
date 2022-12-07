@@ -1,0 +1,80 @@
+.basket {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: left;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 17px;
+    right: 0;
+    width: 100px;
+    height: 1px;
+    background-color: $color-fire;
+    opacity: 0;
+    transition: opacity $default-transition-settings;
+  }
+
+  &__count {
+    position: relative;
+    margin-right: 10px;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+  }
+
+  &__quantity {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid $color-fire;
+    background-color: rgba($color-fire, 0.6);
+
+    overflow: hidden;
+    z-index: -1;
+
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0;
+    color: $color-nero;
+  }
+
+  .basket__price {
+    transition: color $default-transition-settings;
+  }
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    &::before {
+      opacity: 1;
+    }
+
+    .basket__price {
+      color: $color-fire;
+    }
+  }
+
+  &:active {
+    .basket__pricet {
+      color: $color-nero;
+    }
+  }
+}

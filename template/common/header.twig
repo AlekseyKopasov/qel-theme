@@ -96,12 +96,21 @@
 
         <div class="basket">
           <a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}">
-            <span>{{ text_shopping_cart }}</span>
+            <p class="basket__count">
+              <svg class="basket__icon" width="22" height="22" aria-hidden="true">
+                <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-shopping-cart"></use>
+              </svg>
+{#              <span class="basket__quantity">{{ text_items }}</span>#}
+              <span class="basket__quantity">99</span>
+            </p>
           </a>
+{#          <span class="basket__price">{{ text_items }}</span>#}
+          <span class="basket__price">999999</span>
+             &nbsp;₽
         </div>
 
         <div>
-          //- main menu {{ menu }}
+          {{ menu }}
         </div>
       </div>
     </div>

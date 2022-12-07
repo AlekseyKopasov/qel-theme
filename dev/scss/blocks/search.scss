@@ -24,6 +24,7 @@
   &__input {
     @include input();
 
+    min-width: 280px;
     max-width: 292px;
     width: 100%;
     min-height: inherit;

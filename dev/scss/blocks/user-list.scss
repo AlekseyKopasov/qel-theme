@@ -11,11 +11,13 @@
 
     display: flex;
     align-items: center;
+    white-space: nowrap;
   }
 
   &__icon {
     max-width: 22px;
     max-height: 22px;
+    flex-shrink: 0;
   }
 
   &__icon--user {

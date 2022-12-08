@@ -61,14 +61,19 @@
               </svg>
             </a>
           </li>
-          <li class="user-list__item">
-            <a class="user-list__link" href="{{ account }}" title="{{ text_account }}" aria-label="{{ text_account }}">
+          <li class="user-list__item" data-target="user-account-actions">
+            <a
+                class="user-list__link"
+                href="{{ account }}"
+                title="{{ text_account }}"
+                aria-label="{{ text_account }}"
+            >
               <svg class="user-list__icon user-list__icon--user" width="22" height="22" aria-hidden="true">
                 <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-person"></use>
               </svg>
               <span>{{ text_account }}</span>
             </a>
-            <ul>
+            <ul class="dropdown-menu">
               {% if logged %}
                 <li>
                   <a href="{{ account }}">{{ text_account }}</a>

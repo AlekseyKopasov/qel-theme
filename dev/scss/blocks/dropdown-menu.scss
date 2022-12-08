@@ -1,0 +1,72 @@
+.dropdown-menu {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  min-width: 185px;
+  opacity: 0;
+  transform: translateY(100%);
+
+  @include list-reset();
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 10px;
+
+  font-family: $font-family--main;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: $color-scooter;
+  border-radius: 3px;
+  border: 1px solid rgba($color-nero, 0.1);
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.25);
+  background-color: $color-default-white;
+
+  transition: opacity $default-transition-settings;
+  z-index: -1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: 7px;
+    transform-origin: top;
+    transform: rotate(45deg) translate(-50%, 0);
+    width: 14px;
+    height: 14px;
+    background-color: $color-default-white;
+    border: 1px solid rgba($color-nero, 0.1);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 7px;
+  }
+
+  a {
+    padding: 5px 10px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    letter-spacing: 0;
+    color: inherit;
+
+    &:hover,
+    &:focus,
+    &:focus-visible,
+    &:focus-visible {
+      @include link-hover-color();
+    }
+
+    &:active {
+      color: $color-scooter;
+    }
+  }
+}

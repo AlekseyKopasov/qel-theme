@@ -1,4 +1,6 @@
 .logo {
+  margin-right: 90px;
+
   a {
     color: $color-violet;
   }
@@ -12,5 +14,15 @@
 
   a:active {
     color: $color-violet;
+  }
+
+  // media
+  @include viewport--xl {
+    margin-right: 40px;
+  }
+
+  @include viewport--md {
+    margin: 0;
+    order: 2;
   }
 }

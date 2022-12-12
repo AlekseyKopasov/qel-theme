@@ -3,12 +3,12 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: 100%;
+  width: auto;
+  margin-left: 72px;
 
   font-size: 20px;
   line-height: 20px;
   letter-spacing: 0;
-  text-align: left;
   font-weight: 500;
   cursor: pointer;
   outline: none;
@@ -56,7 +56,8 @@
     color: $color-nero;
   }
 
-  .basket__price {
+  &__price,
+  &__count {
     transition: color $default-transition-settings;
   }
 
@@ -73,8 +74,36 @@
   }
 
   &:active {
-    .basket__pricet {
+    .basket__price {
       color: $color-nero;
+    }
+  }
+
+  // media
+  @include viewport--md {
+    order: 3;
+
+    &::before {
+      display: none;
+    }
+
+    &__price,
+    &__currency {
+      display: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      .basket__count {
+        color: $color-fire;
+      }
+    }
+
+    &:active {
+      .basket__count {
+        color: $color-fire;
+      }
     }
   }
 }

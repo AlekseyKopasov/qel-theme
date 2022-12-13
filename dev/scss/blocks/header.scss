@@ -2,14 +2,17 @@
   padding: 30px 0;
 
   &__wrapper {
-    display: flex;
+    display: grid;
+    width: 100%;
+    grid-template-areas: "l l l s s s s u u u b b"; // l - Logo, s - Search, u - User List, b - Basket
     align-items: center;
   }
 
   // media {
-  @include viewport--md {
+  @include viewport--sm {
     &__wrapper  {
-      flex-wrap: wrap;
+      grid-template-areas: "u u u u l l l l b b b b"
+                            "s s s s s s s s s s s s"; // l - Logo, s - Search, u - User List, b - Basket
     }
   }
 }

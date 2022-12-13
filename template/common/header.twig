@@ -36,8 +36,11 @@
       <div class="header__wrapper">
         <div class="logo">
           <a href="{{ home }}">
-            <svg width="122" height="60" aria-hidden="true">
+            <svg class="logo__icon logo__icon--desktop" width="122" height="60" aria-hidden="true">
               <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-logo"></use>
+            </svg>
+            <svg class="logo__icon logo__icon--mobile" width="87" height="43" aria-hidden="true">
+              <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-logo-small"></use>
             </svg>
           </a>
         </div>
@@ -45,7 +48,7 @@
         {{ search }}
 
         <ul class="user-list">
-          <li class="user-list__item">
+          <li class="user-list__item user-list__item--compare">
             <a href="{{ compare }}" class="user-list__link" id="compare-total" title="{{ text_compare }}"
                aria-label="Посмосмотреть товары, отложенные для сравнения">
               <svg class="user-list__icon" width="22" height="22" aria-hidden="true">
@@ -53,7 +56,7 @@
               </svg>
             </a>
           </li>
-          <li class="user-list__item">
+          <li class="user-list__item user-list__item--wishlist">
             <a href="{{ wishlist }}" class="user-list__link" id="wishlist-total" title="{{ text_wishlist }}"
                aria-label="Посмосмотреть товары визибранном">
               <svg class="user-list__icon" width="22" height="22" aria-hidden="true">

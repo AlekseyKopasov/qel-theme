@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: flex-end;
   width: auto;
-  margin-left: 72px;
+
+  grid-area: b;
 
   font-size: 20px;
   line-height: 20px;
@@ -81,18 +82,7 @@
 
   // media
   @include viewport--md {
-    order: 3;
-
-    &::before {
-      display: none;
-    }
-
-    &__price,
-    &__currency {
-      display: none;
-    }
-
-    &:hover,
+      &:hover,
     &:focus,
     &:focus-visible {
       .basket__count {
@@ -104,6 +94,17 @@
       .basket__count {
         color: $color-fire;
       }
+    }
+  }
+
+  @include viewport--sm {
+    &::before {
+      display: none;
+    }
+
+    &__price,
+    &__currency {
+      display: none;
     }
   }
 }

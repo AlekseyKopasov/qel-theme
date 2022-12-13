@@ -1,7 +1,23 @@
 .logo {
-  margin-right: 90px;
+  grid-area: l;
+
+  &__icon--desktop {
+    max-width: 122px;
+    max-height: 60px;
+    flex-shrink: 0;
+  }
+
+  &__icon--mobile {
+    max-width: 61px;
+    max-height: 40px;
+
+    display: none;
+    flex-shrink: 0;
+  }
 
   a {
+    display: flex;
+    align-items: center;
     color: $color-violet;
   }
 
@@ -17,12 +33,17 @@
   }
 
   // media
-  @include viewport--xl {
-    margin-right: 40px;
-  }
+  @include viewport--sm {
+    a {
+      justify-content: center;
+    }
 
-  @include viewport--md {
-    margin: 0;
-    order: 2;
+    &__icon--desktop {
+      display: none;
+    }
+
+    &__icon--mobile {
+      display: flex;
+    }
   }
 }

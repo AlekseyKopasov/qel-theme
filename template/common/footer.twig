@@ -1,45 +1,85 @@
-<footer>
+<footer class="footer" id="footer">
   <div class="container">
-    <div class="row">
-      {% if informations %}
-        <div class="col-sm-3">
-          <h5>{{ text_information }}</h5>
-          <ul class="list-unstyled">
-            {% for information in informations %}
-              <li><a href="{{ information.href }}">{{ information.title }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endif %}
-      <div class="col-sm-3">
-        <h5>{{ text_service }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ contact }}">{{ text_contact }}</a></li>
-          <li><a href="{{ return }}">{{ text_return }}</a></li>
-          <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
-        </ul>
+    <div class="footer__top">
+      <div class="footer__subscribe">
+        <h3 class="footer__subscribe-title">{{ heading_title }}</h3>
+
+        <div>{{ newsletter }}</div>
       </div>
-      <div class="col-sm-3">
-        <h5>{{ text_extra }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
-          <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
-          <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
-          <li><a href="{{ special }}">{{ text_special }}</a></li>
+
+      <ul class="info-list">
+          <li class="info-list__item">
+            {% if informations %}
+              <div class="info-list__item-wrap">
+                <h3 class="info-list__item-title">{{ text_information }}</h3>
+                <ul class="info-list__inner">
+                  {% for information in informations %}
+                    <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+          </li>
+          <li>
+            <div class="info-list__item">
+              <h3 class="info-list__item-title">{{ text_account }}</h3>
+              <ul class="info-list__inner">
+                <li><a href="{{ account }}">{{ text_account }}</a></li>
+                <li><a href="{{ order }}">{{ text_order }}</a></li>
+{#                <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>#}
+              </ul>
+            </div>
+          </li>
+        <li>
+          <div class="info-list__item">
+            <h3 class="info-list__item-title">{{ text_service }}</h3>
+            <ul class="info-list__inner">
+              <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+              <li><a href="{{ return }}">{{ text_return }}</a></li>
+            </ul>
+          </div>
+        </li>
+          <li>
+            <div class="info-list__item">
+              <h3 class="info-list__item-title">{{ text_social_list }}</h3>
+              <ul class="info-list__inner">
+                <li>
+                  <a href="#" target="_blank" noopener noreferrer nofollow aria-label="Мы во Вконтакте">
+                    <svg width="35" height="35" aria-hidden="true">
+                      <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-vk"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" noopener noreferrer nofollow aria-label="Мы во Вконтакте">
+                    <svg width="35" height="35" aria-hidden="true">
+                      <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-tg"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" noopener noreferrer nofollow aria-label="Мы во Вконтакте">
+                    <svg width="35" height="35" aria-hidden="true">
+                      <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-email"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
         </ul>
-      </div>
-      <div class="col-sm-3">
-        <h5>{{ text_account }}</h5>
-        <ul class="list-unstyled">
-          <li><a href="{{ account }}">{{ text_account }}</a></li>
-          <li><a href="{{ order }}">{{ text_order }}</a></li>
-          <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
-          <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
-        </ul>
-      </div>
     </div>
-    <hr>
-    <p>{{ powered }}</p>
+
+    <div class="footer__bottom">
+      <div class="footer__logo">
+          <a href="{{ home }}">
+            <svg width="87" height="43" aria-hidden="true">
+              <use xlink:href="catalog/view/theme/qel-theme/image/sprite_auto.svg#icon-logo-small"></use>
+            </svg>
+          </a>
+      </div>
+      <div class="footer__copy">{{ powered }}</div>
+    </div>
   </div>
 </footer>
 {% for script in scripts %}
